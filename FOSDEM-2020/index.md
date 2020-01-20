@@ -1,5 +1,5 @@
 ---
-title: Support for mini-debuginfo in LLDB ![](llvm-circle-black.pdf){width=1cm height=1cm}
+title: Support for mini-debuginfo in LLDB ![](img/llvm-circle-black.pdf){width=1cm height=1cm}
 subtitle: 'How to read the .gnu_debugdata section'
 subject: LLDB development
 institute: Red Hat
@@ -24,7 +24,7 @@ lang: en-GB
 ### \faicon{comments-o} Reach out
 
 * \faicon{linkedin} <https://www.linkedin.com/in/konradkleine>
-* \faicon{github} <https://github.com/kwk/>
+* \faicon{github} <https://github.com/kwk/talks/>
 * \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/>
 
 # \faicon{history} The Plan In Hindsight
@@ -102,7 +102,7 @@ This **`help`** symbol looks promising[^promising]. Double check that it's **not
 
 [^promising]: Promising as in: we may be able to trigger it with `/usr/bin/zip --help`.
 
-## ![](Archer Fish.pdf){width=1cm height=1cm} Set and hit breakpoint on `help` with GDB 8.3[^gdb83]
+## ![](img/Archer Fish.pdf){width=1cm height=1cm} Set and hit breakpoint on `help` with GDB 8.3[^gdb83]
 
 ```{.bash .tiny}
 ~$ gdb --nx --args /usr/bin/zip --help
@@ -126,7 +126,7 @@ Breakpoint 1, 0x00000000004093a0 in help ()
 
 [^gdb83]: GDB 8.3  is what ships with Fedora 31
 
-## ![](llvm-circle-white.pdf){width=0.5cm height=0.5cm} Set and hit breakpoint on `help` with LLDB 9.0.0[^lldb9]
+## ![](img/llvm-circle-white.pdf){width=0.5cm height=0.5cm} Set and hit breakpoint on `help` with LLDB 9.0.0[^lldb9]
 
 ```{.bash .scriptsize}
 ~$ lldb -x /usr/bin/zip -- --help
@@ -150,7 +150,7 @@ Evidently, LLDB *had* no idea of how to make use of `.gnu_debugdata`, yet.
 
 # \faicon{code-fork} Hack LLDB
 
-##  ![](cmakelogo-centered2.png){width=0.5cm height=0.5cm} Modify LLDB's CMake build system to get LZMA in {#cmake}
+##  ![](img/cmakelogo-centered2.png){width=0.5cm height=0.5cm} Modify LLDB's CMake build system to get LZMA in {#cmake}
 
 **L**empel–**Z**iv–**M**arkov chain **A**lgorithm used to decompress .xz files
 
@@ -194,7 +194,104 @@ llvm::Error uncompress(llvm::ArrayRef<uint8_t> InputBuffer,
                        llvm::SmallVectorImpl<uint8_t> &Uncompressed);
 ```
 
-# \faicon{check-square-o} Testing in LLVM \includegraphics[width=1em]{llvm-circle-black.pdf}
+## \faicon{puzzle-piece} Read the `.gnu_debugdata` section
+
+If there's a `.gnu_debugdata` section, we'll try to read the `.symtab` that's
+embedded in there and replace the one in the original object file (if any).
+If there's none in the orignal object file, we add it to it.
+
+**lldb/source/Plugins/ObjectFile/ELF/ObjectFileELF.cpp:**
+```{.cpp .tiny}
+if (auto gdd_obj_file = GetGnuDebugDataObjectFile()) {
+  if (auto gdd_objfile_section_list = gdd_obj_file->GetSectionList()) {
+    if (SectionSP symtab_section_sp =
+            gdd_objfile_section_list->FindSectionByType(
+                eSectionTypeELFSymbolTable, true)) {
+      SectionSP module_section_sp = unified_section_list.FindSectionByType(
+          eSectionTypeELFSymbolTable, true);
+      if (module_section_sp)
+        unified_section_list.ReplaceSection(module_section_sp->GetID(),
+                                            symtab_section_sp);
+      else
+        unified_section_list.AddSection(symtab_section_sp);
+    }
+  }
+}  
+```
+
+## \faicon{exclamation-triangle} Let's talk `.symtab`
+
+### Symtab
+* normally, `.dynsym` is a subset of `.symtab`.
+* but `.gnu_debugdata`'s embedded `.symtab` has `.dynsym` symbols stripped[^strippedsymtab]:
+  ```{.bash .tiny}
+  # Keep all the function symbols not already in the dynamic symbol
+  # table.
+  comm -13 dynsyms funcsyms > keep_symbols 
+  ```
+
+### Implications for LLDB
+* thus, LLDB needs to load **both**
+  * before it either loaded `.symtab` or `.dynsym`
+    ```{.cpp .tiny .numberLines}
+    if (!symtab) {
+      // [...]
+      symtab =
+          section_list->FindSectionByType(eSectionTypeELFDynamicSymbols, true)
+              .get();
+    }
+    ```
+
+[^strippedsymtab]: https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html
+
+## \faicon{hand-peace-o} Changes to LLDB
+
+LLDB now parses the `.dynsym` symbol table when no `.symtab` was found or when `.gnu_debugdata` was found. 
+
+**`Symtab *ObjectFileELF::GetSymtab()`**:
+```{.cpp .tiny .numberLines}
+// The symtab section is non-allocable and can be stripped, while the
+// .dynsym section which should always be always be there. To support the
+// minidebuginfo case we parse .dynsym when there's a .gnu_debuginfo
+// section, nomatter if .symtab was already parsed or not. This is because
+// minidebuginfo normally removes the .symtab symbols which have their
+// matching .dynsym counterparts.
+if (!symtab ||
+    GetSectionList()->FindSectionByName(ConstString(".gnu_debugdata"))) {
+  Section *dynsym =
+      section_list->FindSectionByType(eSectionTypeELFDynamicSymbols, true)
+          .get();
+  if (dynsym) {
+    if (!m_symtab_up)
+      m_symtab_up.reset(new Symtab(dynsym->GetObjectFile()));
+    symbol_id += ParseSymbolTable(m_symtab_up.get(), symbol_id, dynsym);
+  }
+}
+```
+
+## \faicon{check-square-o} Show that LLDB can now find `help` symbol
+
+```{.bash .tiny}
+$ lldb -x /usr/bin/zip -- --help
+(lldb) target create "/usr/bin/zip"
+Current executable set to '/usr/bin/zip' (x86_64).
+(lldb) settings set -- target.run-args  "--help"
+(lldb) b help
+Breakpoint 1: where = zip`help, address = 0x00000000004093a0
+(lldb) r
+Process 277525 launched: '/usr/bin/zip' (x86_64)
+Process 277525 stopped
+* thread #1, name = 'zip', stop reason = breakpoint 1.1
+    frame #0: 0x00000000004093a0 zip`help
+zip`help:
+->  0x4093a0 <+0>:  pushq  %r12
+    0x4093a2 <+2>:  movq   0x2af6f(%rip), %rsi       ;  + 4056
+    0x4093a9 <+9>:  movl   $0x1, %edi
+    0x4093ae <+14>: xorl   %eax, %eax
+(lldb)
+```
+
+# \faicon{check-square-o} Testing in LLVM \includegraphics[width=1em]{img/llvm-circle-black.pdf}
 
 ## \faicon{gift} lit: LLVM-Integrated-Tester[^llvmlit]
 
@@ -297,70 +394,32 @@ Used here when requiring features for a test:
 
 [^lldbenablelzma]: For `LLDB_ENABLE_LZMA` see the [changes to CMake](#cmake)
 
-## \faicon{puzzle-piece} Read the `.gnu_debugdata` section
+##  {.standout}
 
-If there's a `.gnu_debugdata` section, we'll try to read the `.symtab` that's
-embedded in there and replace the one in the original object file (if any).
-If there's none in the orignal object file, we add it to it.
+\vfill{}
+ ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
+\vspace{2cm}
 
-**lldb/source/Plugins/ObjectFile/ELF/ObjectFileELF.cpp:**
-```{.cpp .tiny}
-if (auto gdd_obj_file = GetGnuDebugDataObjectFile()) {
-  if (auto gdd_objfile_section_list = gdd_obj_file->GetSectionList()) {
-    if (SectionSP symtab_section_sp =
-            gdd_objfile_section_list->FindSectionByType(
-                eSectionTypeELFSymbolTable, true)) {
-      SectionSP module_section_sp = unified_section_list.FindSectionByType(
-          eSectionTypeELFSymbolTable, true);
-      if (module_section_sp)
-        unified_section_list.ReplaceSection(module_section_sp->GetID(),
-                                            symtab_section_sp);
-      else
-        unified_section_list.AddSection(symtab_section_sp);
-    }
-  }
-}  
-```
+[Thank you!]{.Huge}
 
-## Show that LLDB can now find `help` symbol
-
-```{.bash .tiny}
-$ lldb -x /usr/bin/zip -- --help
-(lldb) target create "/usr/bin/zip"
-Current executable set to '/usr/bin/zip' (x86_64).
-(lldb) settings set -- target.run-args  "--help"
-(lldb) b help
-Breakpoint 1: where = zip`help, address = 0x00000000004093a0
-(lldb) r
-Process 277525 launched: '/usr/bin/zip' (x86_64)
-Process 277525 stopped
-* thread #1, name = 'zip', stop reason = breakpoint 1.1
-    frame #0: 0x00000000004093a0 zip`help
-zip`help:
-->  0x4093a0 <+0>:  pushq  %r12
-    0x4093a2 <+2>:  movq   0x2af6f(%rip), %rsi       ;  + 4056
-    0x4093a9 <+9>:  movl   $0x1, %edi
-    0x4093ae <+14>: xorl   %eax, %eax
-(lldb)
-```
-
-## Important change to LLDB: Always Load `.dynsym`
-
-* Normally, `.dynsym` is a subset of `.symtab`.
-
-But with .gnu_debugdata one decided to strip out symbols that are already in .dynsy.
+[*You can find this talk at <https://github.com/kwk/talks/>*]{.tiny}
 
 
+## Sources or recommended reads
 
-Time to see how `.gnu_debugdata` is constructed:
+debugging information in a special section
 
-* Take binary and strip
+:   <https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html#MiniDebugInfo> 
 
-## Familiarise myself with LLDB codebase
+find-debuginfo.sh
 
-* Not uncommon intial hurdles
-  * is that a clean LLDB compiles from a monorepo with Clang and other tools can take ~2hs.
-  * find place where regular `.symtab` is loaded in LLDB
+:   <https://github.com/rpm-software-management/rpm/blob/7cc9eb84a3b2baa0109be599572d78870e0dd3fe/scripts/find-debuginfo.sh#L261>{.tiny}
+
+Where are your symbols, debuginfo and sources?
+
+:   <https://gnu.wildebeest.org/blog/mjw/2016/02/02/where-are-your-symbols-debuginfo-and-sources/> 
+
+
 
 ## \faicon{bar-chart} Tests in LLDB (1848) and Clang (11686) by suites
 
@@ -394,96 +453,3 @@ $ ~/llvm-builds/relwithdebinfo/bin/llvm-lit --show-suites ~/llvm/clang/test -v
     libgcc native plugins shell staticanalyzer system-linux target-x86_64 thread_support
     utf8-capable-terminal x86-registered-target x86_64-linux xmllint z3 zlib
 ```
-
-## Sources or recommended reads
-
-debugging information in a special section
-
-:   <https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html#MiniDebugInfo> 
-
-find-debuginfo.sh
-
-:   <https://github.com/rpm-software-management/rpm/blob/7cc9eb84a3b2baa0109be599572d78870e0dd3fe/scripts/find-debuginfo.sh#L261>{.tiny}
-
-Where are your symbols, debuginfo and sources?
-
-:   <https://gnu.wildebeest.org/blog/mjw/2016/02/02/where-are-your-symbols-debuginfo-and-sources/> 
-
-## Blocks
-
-### Block
-
-::: {.block title="Custom title"} :::
-Block
-::::::::::::
-
-::: info :::
-info text
-::::::::::::
-
-::: {.alert title="My Title"} :::
-Alert block
-::::::::::::
-
-::: {.example title="My Title"} :::
-Example block
-::::::::::::
-
-## Color example
-
-Some [colors]{.important} are very cool :/
-
-## Columns
-
-:::::::::::::: {.columns}
-::: {.column width="40%"}
-contents...
-:::
-::: {.column width="60%"}
-contents...
-:::
-::::::::::::::
-
-## Fenced code block highlighting with language name
-
-``` {#mycodeidentifier .cpp .numberLines startFrom="100"}
-int main(int argc, char *argv[]) {
-  return 0;
-}
-```
-
-## Font size
-
-~~~smallcontent
-And a piece of tiny code.
-~~~
-
-~~~
-And a piece of tiny code.
-~~~
-
-::: notes
-
-This is my note.
-
-- It can contain Markdown
-- like this list
-
-:::
-
-##  {.standout}
-
-\vfill{}
- ![Red Hat](Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
-\vspace{2cm}
-
-[Thank you!]{.Huge}
-
-[(Please share your feedback)]{.tiny} 
-\vfill{}
-
-## slide after that
-
-foo
-
-

@@ -37,7 +37,7 @@ pandoc-beamer-block:
 aspectratio: 43
 # beamer themes
 theme: metropolis
-titlegraphic: redhat.pdf
+titlegraphic: img/redhat.pdf
 monofont: 'Source Code Pro'
 monofontoptions: 'Scale=0.7'
 header-includes: |
