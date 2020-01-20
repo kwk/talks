@@ -1,0 +1,52 @@
+---
+pandoc-latex-fontsize:
+  - classes: [Huge]
+    size: Huge
+  - classes: [huge]
+    size: huge
+  - classes: [LARGE]
+    size: LARGE
+  - classes: [Large]
+    size: Large
+  - classes: [large]
+    size: large
+  - classes: [normalsize]
+    size: normalsize
+  - classes: [small]
+    size: small
+  - classes: [footnotesize]
+    size: footnotesize
+  - classes: [scriptsize]
+    size: scriptsize
+  - classes: [tiny]
+    size: tiny
+# Color codes are here: https://www.w3.org/TR/css-color-3/#svg-color
+pandoc-latex-color:
+  - classes: [important]
+    color: red
+    bgcolor: blue
+pandoc-beamer-block:
+  - classes: [info]
+  - classes: [alert]
+    type: alert
+#----------------
+# These variables change the appearance of PDF slides using beamer.
+# See https://pandoc.org/MANUAL.html#variables-for-beamer-slides
+#----------------
+# slide aspect ratio (43 for 4:3 [default], 169 for 16:9, 1610 for 16:10, 149 for 14:9, 141 for 1.41:1, 54 for 5:4, 32 for 3:2) 
+aspectratio: 43
+# beamer themes
+theme: metropolis
+titlegraphic: redhat.pdf
+monofont: 'Source Code Pro'
+monofontoptions: 'Scale=0.7'
+header-includes: |
+  \setbeamercolor{caption name}{fg=normal text.bg}
+  \usepackage{patchcmd}
+  \patchcommand{\frametitle}{}{}
+  \usepackage{listings}
+  \lstset{basicstyle=\ttfamily}
+  \newcommand{\CodeEmphasis}[1]{\textcolor{red}{\textit{#1}}}
+  \newcommand{\CodeEmphasisLine}[1]{\textcolor{red}{\textit{#1}}}
+  \usepackage{fontawesome}
+...
