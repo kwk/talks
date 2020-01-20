@@ -1,5 +1,5 @@
 ---
-title: Support for mini-debuginfo in LLDB ![](img/llvm-circle-black.pdf){width=1cm height=1cm}
+title: Support for mini-debuginfo in LLDB
 subtitle: 'How to read the .gnu_debugdata section'
 subject: LLDB development
 institute: Red Hat
@@ -17,9 +17,9 @@ lang: en-GB
 
 ### \faicon{user} About me
 
-* Senior Software Engineer at Red Hat 
+* Senior Software Engineer at Red Hat
 * LLDB, C/C++, ELF, DWARF since mid 2019
-* Before worked on Go and OpenShift since mid 2016
+* Before worked OpenShift with Go since mid 2016
 
 ### \faicon{comments-o} Reach out
 
@@ -28,6 +28,16 @@ lang: en-GB
 * \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/>
 
 # \faicon{history} The Plan In Hindsight
+
+## \faicon{question-circle-o} What is `.gnu_debugdata` or mini-debuginfo?
+
+> Some systems ship pre-built executables and libraries that have a special `.gnu_debugdata` section. This feature is called MiniDebugInfo. This section holds an LZMA-compressed object and is used to supply extra symbols for backtraces.
+>
+> The intent of this section is to provide extra minimal debugging information for use in simple backtraces. It is not intended to be a replacement for full separate debugging information [...].
+
+Source: <https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html>
+
+**`.gnu_debugdata` has nothing to do with DWZ!**
 
 ## \faicon{crosshairs} Overall goal and first steps
 
@@ -224,7 +234,7 @@ if (auto gdd_obj_file = GetGnuDebugDataObjectFile()) {
 ### Symtab
 * normally, `.dynsym` is a subset of `.symtab`.
 * but `.gnu_debugdata`'s embedded `.symtab` has `.dynsym` symbols stripped[^strippedsymtab]:
-  ```{.bash .tiny}
+  ```{.bash .scriptsize}
   # Keep all the function symbols not already in the dynamic symbol
   # table.
   comm -13 dynsyms funcsyms > keep_symbols 
@@ -246,7 +256,7 @@ if (auto gdd_obj_file = GetGnuDebugDataObjectFile()) {
 
 ## \faicon{hand-peace-o} Changes to LLDB
 
-LLDB now parses the `.dynsym` symbol table when no `.symtab` was found or when `.gnu_debugdata` was found. 
+LLDB now parses the `.dynsym` symbol table when no `.symtab` was found **or** when `.gnu_debugdata` was found. 
 
 **`Symtab *ObjectFileELF::GetSymtab()`**:
 ```{.cpp .tiny .numberLines}
@@ -269,9 +279,113 @@ if (!symtab ||
 }
 ```
 
+## \faicon{code} Changes to `ObjectFileELF` class
+
+Additional `ObjectFileELF` object created from an optional `.gnu_debugdata` section.
+\vfill{}
+```{.cpp .tiny}
+/// Object file parsed from .gnu_debugdata section (\sa
+/// GetGnuDebugDataObjectFile())
+std::shared_ptr<ObjectFileELF> m_gnu_debug_data_object_file;
+```
+\vfill{}
+Parse once, read many times
+\vfill{}
+```{.cpp .tiny}
+/// Takes the .gnu_debugdata and returns the decompressed object file that is
+/// stored within that section.
+///
+/// \returns either the decompressed object file stored within the
+/// .gnu_debugdata section or \c nullptr if an error occured or if there's no
+/// section with that name.
+std::shared_ptr<ObjectFileELF> GetGnuDebugDataObjectFile();
+```
+
+## \faicon{code} ObjectFileELF::GetGnuDebugDataObjectFile
+
+Return early if `.gnu_debugdata` was already parsed
+\vfill{}
+```{.cpp .tiny}
+std::shared_ptr<ObjectFileELF> ObjectFileELF::GetGnuDebugDataObjectFile() {
+  if (m_gnu_debug_data_object_file != nullptr)
+    return m_gnu_debug_data_object_file;
+  
+  // [...]
+}
+```
+
+## \faicon{code} ObjectFileELF::GetGnuDebugDataObjectFile
+
+Search sections for `.gnu_debugdata` and issue a warning if [LZMA support](#cmake) is not compiled in
+\vfill{}
+```{.cpp .tiny}
+std::shared_ptr<ObjectFileELF> ObjectFileELF::GetGnuDebugDataObjectFile() {
+  // [...]
+  SectionSP section =
+      GetSectionList()->FindSectionByName(ConstString(".gnu_debugdata"));
+  if (!section)
+    return nullptr;
+
+  if (!lldb_private::lzma::isAvailable()) {
+    GetModule()->ReportWarning(
+        "No LZMA support found for reading .gnu_debugdata section");
+    return nullptr;
+  }
+  // [...]
+}
+```
+
+## \faicon{code} ObjectFileELF::GetGnuDebugDataObjectFile
+
+Uncompress `.gnu_debugdata` section
+\vfill{}
+```{.cpp .tiny}
+std::shared_ptr<ObjectFileELF> ObjectFileELF::GetGnuDebugDataObjectFile() {
+  // [...]
+  // Uncompress the data
+  DataExtractor data;
+  section->GetSectionData(data);
+  llvm::SmallVector<uint8_t, 0> uncompressedData;
+  auto err = lldb_private::lzma::uncompress(data.GetData(), uncompressedData);
+  if (err) {
+    GetModule()->ReportWarning(
+        "An error occurred while decompression the section %s: %s",
+        section->GetName().AsCString(), llvm::toString(std::move(err)).c_str()
+    return nullptr;
+  }
+  // [...]
+}
+```
+
+## \faicon{code} ObjectFileELF::GetGnuDebugDataObjectFile
+
+Construct `ObjectFileELF` object from decompressed data
+\vfill{}
+```{.cpp .tiny}
+std::shared_ptr<ObjectFileELF> ObjectFileELF::GetGnuDebugDataObjectFile() {
+  // [...]
+  // Construct ObjectFileELF object from decompressed buffer
+  DataBufferSP gdd_data_buf(
+      new DataBufferHeap(uncompressedData.data(), uncompressedData.size()));
+  auto fspec = GetFileSpec().CopyByAppendingPathComponent(
+      llvm::StringRef("gnu_debugdata"));
+  m_gnu_debug_data_object_file.reset(new ObjectFileELF(
+      GetModule(), gdd_data_buf, 0, &fspec, 0, gdd_data_buf->GetByteSize()));
+
+  // This line is essential; otherwise a breakpoint can be set but not hit.
+  m_gnu_debug_data_object_file->SetType(ObjectFile::eTypeDebugInfo);
+
+  ArchSpec spec = m_gnu_debug_data_object_file->GetArchitecture();
+  if (spec && m_gnu_debug_data_object_file->SetModulesArchitecture(spec))
+    return m_gnu_debug_data_object_file;
+  
+  return nullptr;
+}
+```
+
 ## \faicon{check-square-o} Show that LLDB can now find `help` symbol
 
-```{.bash .tiny}
+```{.bash .scriptsize}
 $ lldb -x /usr/bin/zip -- --help
 (lldb) target create "/usr/bin/zip"
 Current executable set to '/usr/bin/zip' (x86_64).
@@ -394,16 +508,11 @@ Used here when requiring features for a test:
 
 [^lldbenablelzma]: For `LLDB_ENABLE_LZMA` see the [changes to CMake](#cmake)
 
-##  {.standout}
+## \faicon{question-circle-o} What tests exists for mini-debuginfo?
 
-\vfill{}
- ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
-\vspace{2cm}
-
-[Thank you!]{.Huge}
-
-[*You can find this talk at <https://github.com/kwk/talks/>*]{.tiny}
-
+* Test that warning is printed when trying to decompress a `.gnu_debugdata` section when no LZMA support was compiled in
+* Test that we can find a symbol inside `.gnu_debugdata`'s embedded `.symtab` section (using `(lldb) image dump symtab`)
+* Test that an errir is issued when trying to decompress a corrupted `.gnu_debugdata` section
 
 ## Sources or recommended reads
 
@@ -420,6 +529,15 @@ Where are your symbols, debuginfo and sources?
 :   <https://gnu.wildebeest.org/blog/mjw/2016/02/02/where-are-your-symbols-debuginfo-and-sources/> 
 
 
+##  {.standout}
+
+\vfill{}
+ ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
+\vspace{2cm}
+
+[Thank you!]{.Huge}
+
+[*You can find this talk at <https://github.com/kwk/talks/>*]{.tiny}
 
 ## \faicon{bar-chart} Tests in LLDB (1848) and Clang (11686) by suites
 
