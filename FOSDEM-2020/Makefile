@@ -4,8 +4,12 @@ CUR_DIR := $(shell pwd)
 
 all: presentation
 
+.PHONY: clean
+clean:
+	rm -rf tmp
+
 .PHONY: presentation
-presentation:
+presentation: preprocess
 	pandoc \
 	  --from=markdown \
 	  --to=beamer \
@@ -17,7 +21,13 @@ presentation:
 	  --output=index.pdf \
 	  --pdf-engine=pdflatex \
 	  --slide-level 2\
-	  theme-config.yaml index.md
+	  theme-config.yaml tmp/index.md
+
+# see file:///home/kkleine/Downloads/pp/pp-linux-x86_64/pp.html
+.PHONY: preprocess
+preprocess:
+	mkdir -p tmp
+	pp -img=tmp/ index.md > tmp/index.md
 
 .PHONY: setup
 setup:

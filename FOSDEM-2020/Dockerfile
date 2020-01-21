@@ -1,41 +1,36 @@
 FROM fedora:31 as builder
 LABEL maintainer "Konrad Kleine <kkleine@redhat.com>"
 LABEL author "Konrad Kleine <kkleine@redhat.com>"
-ENV LANG=en_US.utf8
 
-RUN yum install -y \
-    texlive-patchcmd \
-    texlive-listings \
-    texlive-fontawesome \
+RUN dnf install -y \
+    ditaa \
+    graphviz* \
+    librsvg2-tools \
+    make \
+    pandoc \
+    python3-pip \
+    texlive-ae \
+    texlive-babel-english \
     texlive-beamer \
     texlive-beamertheme-metropolis \
-    pandoc \
-    make \
-  && yum clean all
-
-RUN yum install -y \
-    python3-pip
-
-RUN yum install -y \
-    texlive-font*
-
-RUN dnf install -y \
-    texlive-metafont \
-    texlive-ec
-
-RUN dnf install -y \
-    texlive-framed \
-    texlive-babel-english \
-    texlive-gsftopk
-
-RUN dnf install -y \
-    texlive-pstricks
-
-RUN dnf install -y \
-    texlive-full \
     texlive-cm \
-    texlive-ae \
-    texlive-t2
+    texlive-dejavu \
+    texlive-ec \
+    texlive-font* \
+    texlive-fontawesome \
+    texlive-framed \
+    texlive-gsftopk \
+    texlive-lato \
+    texlive-listings \
+    texlive-metafont \
+    texlive-noto \
+    texlive-patchcmd \
+    texlive-pstricks \
+    texlive-t2 \
+  && dnf clean all
+
+RUN locale-gen C.UTF-8
+ENV LANG C.UTF-8
 
 # Create a non-root user and a group with the same name: "presenter"
 RUN useradd -s /bin/bash presenter
