@@ -225,7 +225,7 @@ int main(int argc, char* argv[]) {
 \vfill{}
 
 ```{.bash .scriptsize}
-~/llvm-project$ llvm-lit -av lldb/test/Shell/Breakpoint/example.c
+~/llvm-project$ llvm-lit lldb/test/Shell/Breakpoint/example.c
 -- Testing: 1 tests, 1 workers --
 PASS: lldb-shell :: Breakpoint/example.c (1 of 1)
 
