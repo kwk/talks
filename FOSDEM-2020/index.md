@@ -72,8 +72,8 @@ when no debug symbols installed
    +------------------------+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **no replacement** for separate full debug info
 * **extra minimal** debug info for simple backtraces
+* **no replacement** for separate full debug info
 * **not related** to DWZ compression
 
 ## \faicon{folder-open-o} Extract and uncompress `.gnu_debugdata` section to `zip.gdd`
