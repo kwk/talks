@@ -510,9 +510,10 @@ Used here when requiring features for a test:
 
 ## \faicon{question-circle-o} What tests exists for mini-debuginfo?
 
-* Test that warning is printed when trying to decompress a `.gnu_debugdata` section when no LZMA support was compiled in
-* Test that we can find a symbol inside `.gnu_debugdata`'s embedded `.symtab` section (using `(lldb) image dump symtab`)
-* Test that an errir is issued when trying to decompress a corrupted `.gnu_debugdata` section
+* find a symbol inside `.gnu_debugdata`'s embedded `.symtab` section (using `(lldb) image dump symtab`)
+* warning is printed when no decompressing `.gnu_debugdata` w/o LZMA support
+* error is issued when trying to decompress a corrupted `.gnu_debugdata` section
+* full example with compiled and modified code in accordance to gdb's documentation 
 
 ## Sources or recommended reads
 
@@ -533,41 +534,10 @@ Where are your symbols, debuginfo and sources?
 
 \vfill{}
  ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
-\vspace{2cm}
+\vspace{1cm}
 
 [Thank you!]{.Huge}
 
-[*You can find this talk at <https://github.com/kwk/talks/>*]{.tiny}
+[Please share your feedback \faicon{star}\faicon{star}\faicon{star}\faicon{star}\faicon{star}]{.tiny}
 
-## \faicon{bar-chart} Tests in LLDB (1848) and Clang (11686) by suites
-
-Clang has 6x more tests than LLDB
-
-```{.tiny}
-$ ~/llvm-builds/relwithdebinfo/bin/llvm-lit --show-suites ~/llvm/lldb/test
--- Test Suites --
-  lldb-api - 784 tests
-    Source Root: /home/kkleine/llvm/lldb/packages/Python/lldbsuite/test
-    Exec Root  : /home/kkleine/llvm/lldb/packages/Python/lldbsuite/test
-  lldb-shell - 295 tests
-    Source Root: /home/kkleine/llvm/lldb/test/Shell
-    Exec Root  : /home/kkleine/llvm-builds/relwithdebinfo/tools/lldb/test
-    Available Features : asserts dbregs-set lld lua lzma native native-cpu-avx
-    native-cpu-sse python shell system-linux target-x86_64 x86 x86_64-linux xz zlib
-  lldb-unit - 769 tests
-    Source Root: /home/kkleine/llvm-builds/relwithdebinfo/tools/lldb/unittests
-    Exec Root  : /home/kkleine/llvm-builds/relwithdebinfo/tools/lldb/unittests
-    Available Features : shell system-linux target-x86_64 x86_64-linux
-```
-
-```{.tiny}
-$ ~/llvm-builds/relwithdebinfo/bin/llvm-lit --show-suites ~/llvm/clang/test -v
--- Test Suites --
-  Clang - 11686 tests
-    Source Root: /home/kkleine/llvm/clang/test
-    Exec Root  : /home/kkleine/llvm-builds/relwithdebinfo/tools/clang/test
-    Available Features : LP64 ansi-escape-sequences asserts backtrace 
-    can-remove-opened-file clang-driver crash-recovery dev-fd-fs enable_shared
-    libgcc native plugins shell staticanalyzer system-linux target-x86_64 thread_support
-    utf8-capable-terminal x86-registered-target x86_64-linux xmllint z3 zlib
-```
+[<https://submission.fosdem.org/feedback/10393>]{.tiny}
