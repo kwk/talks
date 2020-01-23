@@ -15,7 +15,7 @@ date: February 2, 2020
 lang: en-GB
 ...
 
-## \faicon{user-secret} About me
+##  ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=0.5cm height=0.5cm} About me
 
 ### \faicon{user} Konrad Kleine
 
@@ -42,23 +42,18 @@ lang: en-GB
 * make LLDB understand mini-debuginfo
   * that's where runtime symbols are stored
 
-<!-- ### Mini-debuginfo has nothing to do
-
-* with DWARF
-* just with symbol tables -->
-
-## \faicon{lightbulb-o} Why was mini-debuginfo invented?
+## \faicon{lightbulb-o} Why was mini-debuginfo invented and how?
 
 * without installing debug infos
   * be able to generate a backtrace for crashes with ABRT[^abrt]
-  * have symbol table (`.symtab`)
-  * have line information (`.debug_line`)
-  * \faicon{arrow-right} *more than two sections make an ELF file \faicon{smile-o}*
+  * ~~have symbol table (`.symtab`)~~
+  * ~~have line information (`.debug_line`)~~
+  * \faicon{arrow-right} *more than two sections make up an ELF file \faicon{smile-o}*
 
 * eventually only one relevant section
   * stripped `.symtab`
   * rest was too big
-  * format remained
+  * ELF format remained
   * **no replacement** for separate full debug info
   * **not related** to DWARF
     * *just symbol tables*
@@ -71,7 +66,7 @@ lang: en-GB
 
 ## Where and since when is mini-debuginfo being used?
 
-* [RPM since 4.13.0-rc2 (2016)](https://rpm.org/timeline.html)
+<!-- * [RPM since 4.13.0-rc2 (2016)](https://rpm.org/timeline.html) -->
 * On by default since Fedora 18 (2013, [Release Notes 4.2.4.1.](https://docs.fedoraproject.org/en-US/Fedora/18/pdf/Release_Notes/Fedora-18-Release_Notes-en-US.pdf#page=23))
 * Red Hat Enterprise Linux (RHEL) since 7
 
@@ -91,14 +86,20 @@ lang: en-GB
   * not from `.dynsym`
   * from within `.gnu_debugdata`
 
-## \faicon{folder-open-o} Extract and uncompress `.gnu_debugdata` section to `zip.gdd`
+## \faicon{folder-open-o} Extract + decompress `.gnu_debugdata` from `/usr/bin/zip`
 
 ```{.bash .small .numberLines}
-~$ cp /usr/bin/zip .
+# Dump section
 ~$ objcopy --dump-section .gnu_debugdata=zip.gdd.xz zip
+
+# Determine file type of section
 ~$ file zip.gdd.xz
 zip.gdd.xz: XZ compressed data
+
+# Decompress section
 ~$ xz --decompress --keep zip.gdd.xz
+
+# Determine file type of decompressed section
 ~$ file zip.gdd
 zip.gdd: ELF 64-bit LSB executable, x86-64, version 1 [...]
 ```
@@ -109,6 +110,7 @@ zip.gdd: ELF 64-bit LSB executable, x86-64, version 1 [...]
 ## \faicon{eye} Identify symbol in `zip.gdd` but not in main binary
 
 ```{.bash .tiny .numberLines}
+# Show symbols
 ~$ eu-readelf -s zip.gdd
 
 Symbol table [28] '.symtab' contains 202 entries:
@@ -134,12 +136,15 @@ Symbol table [28] '.symtab' contains 202 entries:
 
 ```{.bash .tiny .numberLines}
 ~$ gdb --nx --args /usr/bin/zip --help
+
 Reading symbols from /usr/bin/zip...
 Reading symbols from .gnu_debugdata for /usr/bin/zip...
 (No debugging symbols found in .gnu_debugdata for /usr/bin/zip)
 Missing separate debuginfos, use: dnf debuginfo-install zip-3.0-25.fc31.x86_64
+
 (gdb) b help
 Breakpoint 1 at 0x4093a0
+
 (gdb) r
 Starting program: /usr/bin/zip --help
 
@@ -158,16 +163,19 @@ Breakpoint 1, 0x00000000004093a0 in help ()
 
 ```{.bash .scriptsize .numberLines}
 ~$ lldb -x /usr/bin/zip -- --help
+
 (lldb) target create "/usr/bin/zip"
 Current executable set to '/usr/bin/zip' (x86_64).
 (lldb) settings set -- target.run-args  "--help"
+
 (lldb) b help
 Breakpoint 1: no locations (pending).
 WARNING:  Unable to resolve breakpoint to any actual locations.
+
 (lldb)
 ```
 
-[\faicon{frown-o} \faicon{hand-o-right} \faicon{stack-overflow}]{.Huge}
+*\faicon{music}  [If you're \faicon{frown-o} and you know it \dots \faicon{stack-overflow}]{.large}*
 
 [^lldb9]: LLDB 9.0.0 is what ships with Fedora 31
 
@@ -187,13 +195,16 @@ WARNING:  Unable to resolve breakpoint to any actual locations.
 
 ## \faicon{check-square-o} Show that LLDB can now find `help` symbol
 
-```{.bash .scriptsize .numberLines}
+```{.bash .tiny .numberLines}
 $ lldb -x /usr/bin/zip -- --help
+
 (lldb) target create "/usr/bin/zip"
 Current executable set to '/usr/bin/zip' (x86_64).
 (lldb) settings set -- target.run-args  "--help"
+
 (lldb) b help
 Breakpoint 1: where = zip`help, address = 0x00000000004093a0
+
 (lldb) r
 Process 277525 launched: '/usr/bin/zip' (x86_64)
 Process 277525 stopped
@@ -213,12 +224,12 @@ zip`help:
 
 ## \faicon{question-circle-o} What tests exists for mini-debuginfo?
 
-* find symbol from `.gnu_debugdata`
-* warning when decompressing `.gnu_debugdata` w/o LZMA support
-* error when decompressing corrupted xz
-* full example with compiled and modified code in accordance to gdb's documentation 
+* \faicon{search} find symbol from `.gnu_debugdata`
+* \faicon{exclamation-triangle} when mini-debuginfo w/o LZMA support
+* \faicon{exclamation-circle} when decompressing corrupted xz
+* \faicon{gears} full example with compiled and modified code in accordance to gdb's documentation 
 
-# \faicon{bed} fell asleep yet?
+# \faicon{moon-o} fell asleep yet?
 
 ## \faicon{code} Example test file in Shell test suite
 
@@ -238,25 +249,56 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-\vfill{}
-
-```{.bash .scriptsize}
-~/llvm-project$ llvm-lit lldb/test/Shell/Breakpoint/example.c
--- Testing: 1 tests, 1 workers --
-PASS: lldb-shell :: Breakpoint/example.c (1 of 1)
-
-Testing Time: 0.20s
-  Expected Passes    : 1
-```
+* features added: `lzma`, `xz`
+  * just some CMake canonisation and Python config
+    ```{.python .tiny .numberLines}
+    if config.lldb_enable_lzma:
+      config.available_features.add('lzma')
+    if find_executable('xz') != None:
+      config.available_features.add('xz')
+    ```
 
 ## You might wonder...
 
-* what was the hardest part?
-  * polishing for upstream
-  * dealing with tests
-    * non-runnable/sparse ELF files produced from some YAML
-* set **and** hit a breakpoint
-  * only possible with runnable ELF file
+### What was the hardest part?
+* \faicon{smile-o} setting a breakpoint worked
+* \faicon{frown-o} hitting a breakpoint didn't work 
+  * \faicon{trash-o} non-runnable/sparse ELF files in YAML form didn't cut it
+* \faicon{map-o} dealing with tests
+  * `yaml2obj`[^yaml2obj] always produced `.symtab`
+    * \faicon{bomb} made my tests go nuts 
+* \faicon{balance-scale} polishing for upstream
+
+[^yaml2obj]: *"yaml2obj takes a YAML description of an object file and converts it to a binary file."*  (<https://llvm.org/docs/yaml2obj.html>)
+
+## Real example of sparse ELF file
+
+### Check to find symbol `multiplyByFour` in mini-debuginfo
+
+```{.yaml .tiny}
+# REQUIRES: lzma
+# RUN: yaml2obj %s > %t.obj
+# RUN: llvm-objcopy --remove-section=.symtab %t.obj
+# RUN: %lldb -b -o 'image dump symtab' %t.obj | FileCheck %s
+# CHECK: [ 0] 1 X Code 0x00000000004005b0 0x000000000000000f 0x00000012 multiplyByFour
+
+--- !ELF
+FileHeader:
+  Class:           ELFCLASS64
+  Data:            ELFDATA2LSB
+  Type:            ET_EXEC
+  Machine:         EM_X86_64
+  Entry:           0x00000000004004C0
+Sections:
+  - Name:            .gnu_debugdata
+    Type:            SHT_PROGBITS
+    AddressAlign:    0x0000000000000001
+    Content:         FD377A585A000004E6 # ...
+...
+```
+
+* notice line 4 manually removes `.symtab`
+* meanwhile `yaml2obj` was fixed
 
 ##  {.standout}
 

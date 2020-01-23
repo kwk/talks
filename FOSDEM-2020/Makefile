@@ -16,6 +16,7 @@ presentation: preprocess
 	  --filter pandoc-latex-fontsize \
 	  --filter pandoc-latex-color \
 	  --filter pandoc-beamer-block \
+	  --filter ~/.cabal/bin/pandoc-emphasize-code \
 	  --highlight-style highlight/my.theme \
 	  --standalone \
 	  --output=index.pdf \
@@ -29,12 +30,15 @@ preprocess:
 	mkdir -p tmp
 	pp -img=tmp/ index.md > tmp/index.md
 
+# run this manually
 .PHONY: setup
 setup:
 	pip install --user --quiet \
 	  pandoc-latex-fontsize \
 	  pandoc-latex-color \
-	  pandoc-beamer-block
+	  pandoc-beamer-block \
+	cabal new-update \
+	cabal install pandoc-emphasize-code
 
 .PHONY: docker-image
 docker-image: Dockerfile
