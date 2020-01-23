@@ -3,6 +3,7 @@ LABEL maintainer "Konrad Kleine <kkleine@redhat.com>"
 LABEL author "Konrad Kleine <kkleine@redhat.com>"
 
 RUN dnf install -y \
+    asymptote \
     ditaa \
     graphviz* \
     librsvg2-tools \
@@ -15,6 +16,7 @@ RUN dnf install -y \
     texlive-beamertheme-metropolis \
     texlive-cm \
     texlive-dejavu \
+    texlive-dvisvgm \
     texlive-ec \
     texlive-font* \
     texlive-fontawesome \

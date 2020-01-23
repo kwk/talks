@@ -49,4 +49,6 @@ header-includes: |
   \newcommand{\CodeEmphasis}[1]{\textcolor{red}{\textit{#1}}}
   \newcommand{\CodeEmphasisLine}[1]{\textcolor{red}{\textit{#1}}}
   \usepackage{fontawesome}
+  \usepackage{tikz}
+  \usetikzlibrary{positioning,shapes.geometric}
 ...

@@ -28,13 +28,61 @@ lang: en-GB
 * \faicon{github} <https://github.com/kwk/talks/>
 * \faicon{linkedin} <https://www.linkedin.com/in/konradkleine>
 * \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/>
-* \faicon{twitter} <https://twitter.com/realdonaldtrump>
 
-## \faicon{crosshairs} Overall goal and first steps
+## \faicon{crosshairs} Overall goal
 
 ### Improve LLDB for Fedora and RHEL binaries
 
-when no debug symbols installed
+* when no debug symbols installed
+  * backtraces only show addresses
+  * runtime symbols stored in special location
+
+### Approach
+
+* make LLDB understand mini-debuginfo
+  * that's where runtime symbols are stored
+
+<!-- ### Mini-debuginfo has nothing to do
+
+* with DWARF
+* just with symbol tables -->
+
+## \faicon{lightbulb-o} Why was mini-debuginfo invented?
+
+* without installing debug infos
+  * be able to generate a backtrace for crashes with ABRT[^abrt]
+  * have symbol table (`.symtab`)
+  * have line information (`.debug_line`)
+  * \faicon{arrow-right} *more than two sections make an ELF file \faicon{smile-o}*
+
+* eventually only one relevant section
+  * stripped `.symtab`
+  * rest was too big
+  * format remained
+  * **no replacement** for separate full debug info
+  * **not related** to DWARF
+    * *just symbol tables*
+
+[^abrt]: Automatic Bug Reporting Tool
+
+## Symbol tables in an ELF file
+
+![](img/symtab-dynsym.svg)
+
+## Where and since when is mini-debuginfo being used?
+
+* [RPM since 4.13.0-rc2 (2016)](https://rpm.org/timeline.html)
+* On by default since Fedora 18 (2013, [Release Notes 4.2.4.1.](https://docs.fedoraproject.org/en-US/Fedora/18/pdf/Release_Notes/Fedora-18-Release_Notes-en-US.pdf#page=23))
+* Red Hat Enterprise Linux (RHEL) since 7
+
+## \faicon{map-signs} Approach
+
+### Not focus on backtraces
+
+* but make LLDB see mini-debuginfo
+  * symbol awareness through
+    * set and hit breakpoint
+    * dump symbols (`(lldb) image dump symtab`)
 
 ### Take existing Fedora binary (`/usr/bin/zip`)
 * identify a symbol/function
@@ -42,39 +90,6 @@ when no debug symbols installed
 * hurdles:
   * not from `.dynsym`
   * from within `.gnu_debugdata`
-
-## \faicon{pbject-group} What is the `.gnu_debugdata` section (aka mini-debuginfo)?
-
-!ditaa(minidebug-info-elf)()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   /usr/bin/zip on Fedora
-   +------------------------+       +-----------------------------+
-   |  ELF file              |    +->|  XZ compressed data         |
-   |  {d}                   |    |  |                             |
-   |  +---------+           |    |  |   +---------------------+   |
-   |  | .dynsym |           |    |  |   | Embedded ELF file   |   |
-   |  +---------+           |    |  |   |  +---------+        |   |
-   |                        |    |  |   |  | cGRE    |        |   |
-   |                        |    |  |   |  | .symtab |        |   |
-   |  +-----------------+   |    |  |   |  +---------+        |   |
-   |  | .gnu_debug_data +---+ ---+  |   |       {d}           |   |
-   |  +-----------------+   |       |   |                     |   |
-   |                        |       |   |                     |   |
-   |  +---------+           |       |   |  +------=---------+ |   |
-   |  | cRED    |           |       |   |  : Other sections : |   |
-   |  | .symtab |           |       |   |  +------=---------+ |   |
-   |  +---------+           |       |   |                     |   |
-   |                        |       |   +---------------------+   |
-   |  +-------=--------+    |       |                             |
-   |  : Other sections :    |       +-----------------------------+
-   |  +-------=--------+    |
-   |                        |
-   +------------------------+
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* **extra minimal** debug info for simple backtraces
-* **no replacement** for separate full debug info
-* **not related** to DWZ compression
 
 ## \faicon{folder-open-o} Extract and uncompress `.gnu_debugdata` section to `zip.gdd`
 
@@ -88,7 +103,7 @@ zip.gdd.xz: XZ compressed data
 zip.gdd: ELF 64-bit LSB executable, x86-64, version 1 [...]
 ```
 
-* `eu-readelf -Ws --elf-section` can directly access `.gnu_debugdata`
+<!-- * `eu-readelf -Ws --elf-section` can directly access `.gnu_debugdata` -->
 
 
 ## \faicon{eye} Identify symbol in `zip.gdd` but not in main binary
@@ -163,11 +178,12 @@ WARNING:  Unable to resolve breakpoint to any actual locations.
 * **but** for mini-debuginfo `.dynsym` symbols are stripped[^strippedsymtab]
 
 ### Implications for LLDB (and other tools)
-* parse `.dynsym`
-  * when no `.symtab` found **or**
-  * when mini-debuginfo present and smuggled in
+* parse `.dynsym` when
+  * no `.symtab` found **or**
+  * mini-debuginfo present and smuggled in
 
 [^strippedsymtab]: https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html
+
 
 ## \faicon{check-square-o} Show that LLDB can now find `help` symbol
 
@@ -191,7 +207,7 @@ zip`help:
 (lldb)
 ```
 
-[\faicon{heart-o}]{.huge}
+[\faicon{heart-o} shipping with LLVM 10]{.large}
 
 # \faicon{ship} Ready to ship?
 
@@ -233,6 +249,15 @@ Testing Time: 0.20s
   Expected Passes    : 1
 ```
 
+## You might wonder...
+
+* what was the hardest part?
+  * polishing for upstream
+  * dealing with tests
+    * non-runnable/sparse ELF files produced from some YAML
+* set **and** hit a breakpoint
+  * only possible with runnable ELF file
+
 ##  {.standout}
 
 \vfill{}
@@ -241,6 +266,6 @@ Testing Time: 0.20s
 
 [Thank you!]{.Huge}
 
-[Please share your feedback \faicon{star}\faicon{star}\faicon{star}\faicon{star}\faicon{star}]{.tiny}
+[Please, share your feedback \faicon{star}\faicon{star}\faicon{star}\faicon{star}\faicon{star}]{.tiny}
 
 [<https://submission.fosdem.org/feedback/10393>]{.tiny}
