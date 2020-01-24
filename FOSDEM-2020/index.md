@@ -294,6 +294,8 @@ int main(int argc, char* argv[]) {
 
 ### \faicon{search} Check to find symbol `multiplyByFour` in mini-debuginfo
 
+\vspace{0.4cm}
+
 ```{.yaml .tiny .numberLines}
 # REQUIRES: lzma
 # RUN: yaml2obj %s > %t.obj
@@ -322,10 +324,10 @@ Sections:
 ##  {.standout}
 
 \vfill{}
-\begin{columns}
+<!-- \begin{columns}
   \begin{column}{0.5\textwidth}
     \begin{flushright}
-      \includegraphics[width=2cm,height=2cm]{img/llvm-circle-white.pdf}
+      \includegraphics[width=1.8cm,height=1.8cm]{img/llvm-circle-white.pdf}
     \end{flushright}
   \end{column}
   \begin{column}{0.5\textwidth}  
@@ -333,19 +335,10 @@ Sections:
       \includegraphics[width=2cm,height=2cm]{img/Logo-RedHat-Hat-White-RGB.pdf}
     \end{flushleft}
   \end{column}
-\end{columns}
-<!-- :::::::::::::: {.columns}
-::: {.column width="50%"}
-\begin{centering}
- ![](img/llvm-circle-white.pdf){width=2cm height=2cm}
-\end{centering}
-:::
-::: {.column width="50%"}
-\begin{centering}
- ![](img/Logo-RedHat-Hat-White-RGB.pdf){width=2cm height=2cm}
-\end{centering}
-:::
-:::::::::::::: -->
+\end{columns} -->
+
+![](img/llvm-circle-and-red-hat.pdf){height=2cm}
+
 \vspace{1cm}
 
 [Thank you!]{.Huge}
