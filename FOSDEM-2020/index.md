@@ -15,19 +15,35 @@ date: February 2, 2020
 lang: en-GB
 ...
 
-##  ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=0.5cm height=0.5cm} About me
+##  \faicon{user} About me
 
-### \faicon{user} Konrad Kleine
+:::::::::::::: {.columns}
+::: {.column width="70%"}
+![](img/redhat.pdf){height=0.5cm}
 
-* Red Hat
 * LLDB, C/C++, ELF, DWARF since 2019
-* Before worked OpenShift since 2016
+* joined and worked on OpenShift in 2016
+
+:::
+::: {.column width="30%"}
+![](img/llvm-circle-metropolis.pdf)
+:::
+::::::::::::::
+
+<!-- ![](img/red-shield.pdf){width=0.5cm height=0.5cm} McAfee
+
+* content filtering + text extraction (mostly PDF) compression libs (2013-2016)
+
+![](img/gonicus.png){height=0.5cm}
+
+* statistics module for large scale telephony installation (2009-2013) -->
 
 ### \faicon{comments-o} Reach out
 
-* \faicon{github} <https://github.com/kwk/talks/>
-* \faicon{linkedin} <https://www.linkedin.com/in/konradkleine>
-* \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/>
+* \faicon{github-square} <https://github.com/kwk/talks/>
+* \faicon{linkedin-square} <https://www.linkedin.com/in/konradkleine>
+<!-- * \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/> -->
+<!-- * \faicon{twitter} n/a -->
 
 ## \faicon{crosshairs} Overall goal
 
@@ -62,7 +78,7 @@ lang: en-GB
 
 ## Symbol tables in an ELF file
 
-![](img/symtab-dynsym.svg)
+![](img/symtab-dynsym.pdf)
 
 ## Where and since when is mini-debuginfo being used?
 
@@ -75,9 +91,8 @@ lang: en-GB
 ### Not focus on backtraces
 
 * but make LLDB see mini-debuginfo
-  * symbol awareness through
-    * set and hit breakpoint
-    * dump symbols (`(lldb) image dump symtab`)
+  * set and hit breakpoint
+  * dump symbols (`(lldb) image dump symtab`)
 
 ### Take existing Fedora binary (`/usr/bin/zip`)
 * identify a symbol/function
@@ -225,8 +240,8 @@ zip`help:
 ## \faicon{question-circle-o} What tests exists for mini-debuginfo?
 
 * \faicon{search} find symbol from `.gnu_debugdata`
-* \faicon{exclamation-triangle} when mini-debuginfo w/o LZMA support
-* \faicon{exclamation-circle} when decompressing corrupted xz
+* \faicon{exclamation-triangle} warning when mini-debuginfo w/o LZMA support
+* \faicon{exclamation-circle} error when decompressing corrupted xz
 * \faicon{gears} full example with compiled and modified code in accordance to gdb's documentation 
 
 # \faicon{moon-o} fell asleep yet?
@@ -263,19 +278,23 @@ int main(int argc, char* argv[]) {
 ### What was the hardest part?
 * \faicon{smile-o} setting a breakpoint worked
 * \faicon{frown-o} hitting a breakpoint didn't work 
-  * \faicon{trash-o} non-runnable/sparse ELF files in YAML form didn't cut it
+  * non-runnable/sparse ELF files in YAML form didn't cut it
 * \faicon{map-o} dealing with tests
   * `yaml2obj`[^yaml2obj] always produced `.symtab`
-    * \faicon{bomb} made my tests go nuts 
+    * made my tests go nuts
+
+### Community aspects 
 * \faicon{balance-scale} polishing for upstream
+* \faicon{github} repo migration to github, review in phabricator
+  * strong opinions add unconstructive noise on LLVM mailing lists 
 
 [^yaml2obj]: *"yaml2obj takes a YAML description of an object file and converts it to a binary file."*  (<https://llvm.org/docs/yaml2obj.html>)
 
-## Real example of sparse ELF file
+## Real example of sparse ELF test file
 
-### Check to find symbol `multiplyByFour` in mini-debuginfo
+### \faicon{search} Check to find symbol `multiplyByFour` in mini-debuginfo
 
-```{.yaml .tiny}
+```{.yaml .tiny .numberLines}
 # REQUIRES: lzma
 # RUN: yaml2obj %s > %t.obj
 # RUN: llvm-objcopy --remove-section=.symtab %t.obj
@@ -303,11 +322,34 @@ Sections:
 ##  {.standout}
 
 \vfill{}
- ![Red Hat](img/Logo-RedHat-Hat-White-RGB.pdf "Red Hat"){width=2cm height=2cm}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{flushright}
+      \includegraphics[width=2cm,height=2cm]{img/llvm-circle-white.pdf}
+    \end{flushright}
+  \end{column}
+  \begin{column}{0.5\textwidth}  
+    \begin{flushleft}
+      \includegraphics[width=2cm,height=2cm]{img/Logo-RedHat-Hat-White-RGB.pdf}
+    \end{flushleft}
+  \end{column}
+\end{columns}
+<!-- :::::::::::::: {.columns}
+::: {.column width="50%"}
+\begin{centering}
+ ![](img/llvm-circle-white.pdf){width=2cm height=2cm}
+\end{centering}
+:::
+::: {.column width="50%"}
+\begin{centering}
+ ![](img/Logo-RedHat-Hat-White-RGB.pdf){width=2cm height=2cm}
+\end{centering}
+:::
+:::::::::::::: -->
 \vspace{1cm}
 
 [Thank you!]{.Huge}
 
-[Please, share your feedback \faicon{star}\faicon{star}\faicon{star}\faicon{star}\faicon{star}]{.tiny}
+[Please, share your feedback \faicon{star} \faicon{star} \faicon{star} \faicon{star} \faicon{star-half-full}]{.tiny}
 
 [<https://submission.fosdem.org/feedback/10393>]{.tiny}

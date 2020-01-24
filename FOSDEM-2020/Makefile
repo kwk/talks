@@ -20,7 +20,7 @@ presentation: preprocess
 	  --highlight-style highlight/my.theme \
 	  --standalone \
 	  --output=index.pdf \
-	  --pdf-engine=pdflatex \
+	  --pdf-engine=xelatex \
 	  --slide-level 2\
 	  theme-config.yaml tmp/index.md
 

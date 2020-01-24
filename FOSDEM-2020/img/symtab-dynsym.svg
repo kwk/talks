@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="245.78354mm"
-   height="181.44272mm"
-   viewBox="0 0 245.78355 181.4427"
+   height="181.74638mm"
+   viewBox="0 0 245.78355 181.74637"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (unknown)"
@@ -259,8 +259,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="400.82737"
-     inkscape:cy="207.05828"
+     inkscape:cx="362.44157"
+     inkscape:cy="368.68266"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -292,7 +292,7 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(2.9384809,-2.342836)">
+     transform="translate(2.9384809,-2.0391617)">
     <path
        style="opacity:1;fill:#eeeeec;fill-opacity:1;stroke:#888a85;stroke-width:0.17720692;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
        d="M 122.18939,9.8179814 H 242.75645 V 163.81412 c -36.89042,48.51371 -77.357,-8.03978 -120.56706,0 z"
@@ -300,7 +300,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468000000004;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
        id="rect2701-6"
        width="33.839111"
        height="11.550086"
@@ -337,7 +337,7 @@
        style="opacity:1;fill:#8ae234;fill-opacity:1;stroke:#555753;stroke-width:0.17638889;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="72.427116"
        y="41.188171"
        id="text823-9-0"><tspan
@@ -345,15 +345,15 @@
          id="tspan821-1-5"
          x="72.427116"
          y="41.188171"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px;">symbols needed by linker</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px">symbols needed by linker</tspan><tspan
          sodipodi:role="line"
          x="72.427116"
          y="46.479839"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px"
          id="tspan885">to construct program</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="96.314285"
        y="70.959839"
        id="text6649"><tspan
@@ -362,16 +362,16 @@
          sodipodi:role="line"
          x="96.314285"
          y="70.959839"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52777767px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">duplicate</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">duplicate</tspan><tspan
          rotate="0 0 0 0 0 0 0 0"
          id="tspan6699"
          sodipodi:role="line"
          x="96.314285"
-         y="74.234123"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52777767px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">symbols</tspan></text>
+         y="74.13781"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">symbols</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="57.373501"
        y="6.0741749"
        id="text823-9-64"><tspan
@@ -379,10 +379,10 @@
          id="tspan821-1-8"
          x="57.373501"
          y="6.0741749"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px;">regular ELF file</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">regular ELF file</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.15164614px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12606581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.15164614px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12606581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="181.0621"
        y="6.061635"
        id="text823-9-64-0"
@@ -391,10 +391,10 @@
          id="tspan821-1-8-6"
          x="181.0621"
          y="6.061635"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12606581px;"> ELF file with mini-debuginfo</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12606581px"> ELF file with mini-debuginfo</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="182.45351"
        y="164.29616"
        id="text2705-1"><tspan
@@ -402,7 +402,7 @@
          id="tspan2703-0"
          x="182.45351"
          y="164.29616"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px;">other stuff</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px">other stuff</tspan></text>
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -415,10 +415,10 @@
        height="11.550086"
        width="33.839111"
        id="rect2934"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468000000004;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="193.84567"
        y="68.346138"
        id="text823-9-2"
@@ -427,15 +427,15 @@
          id="tspan821-1-1"
          x="193.84567"
          y="68.346138"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px;">.gnu_debugdata (LZMA compressed ELF-object)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px">.gnu_debugdata (LZMA compressed ELF-object)</tspan></text>
     <text
        transform="scale(0.94819633,1.0546339)"
        id="text2922"
        y="77.591377"
        x="192.40138"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px;"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px"
          y="77.591377"
          x="192.40138"
          id="tspan2920"
@@ -449,15 +449,15 @@
        id="text2928"
        y="106.36483"
        x="146.73228"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px"
          y="106.36483"
          x="146.73228"
          id="tspan2924"
          sodipodi:role="line">symbols needed</tspan><tspan
          id="tspan2926"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px"
          y="111.65649"
          x="146.73228"
          sodipodi:role="line">at runtime</tspan></text>
@@ -465,9 +465,9 @@
        id="text2938"
        y="142.06889"
        x="182.32545"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px;"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px"
          y="142.06889"
          x="182.32545"
          id="tspan2936"
@@ -486,7 +486,7 @@
        d="M 233.07182,42.547562 A 35.529762,12.476293 0 0 1 197.667,55.023777 35.529762,12.476293 0 0 1 162.01317,42.635315 35.529762,12.476293 0 0 1 197.1672,30.071963 35.529762,12.476293 0 0 1 233.0683,42.37206" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="197.50325"
        y="27.530365"
        id="text1477"><tspan
@@ -494,20 +494,20 @@
          id="tspan1475"
          x="197.50325"
          y="27.530365"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px;">.dynsym</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">.dynsym</tspan></text>
     <text
        id="text1483"
        y="41.188171"
        x="197.46638"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px"
          y="41.188171"
          x="197.46638"
          id="tspan1479"
          sodipodi:role="line">symbols needed by linker</tspan><tspan
          id="tspan1481"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#2e3436;fill-opacity:1;stroke-width:0.12711892px"
          y="46.479839"
          x="197.46638"
          sodipodi:role="line">to construct program</tspan></text>
@@ -515,9 +515,9 @@
        id="text181"
        y="27.530365"
        x="72.508606"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;line-height:3.17797303px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px"
          y="27.530365"
          x="72.508606"
          id="tspan179"
@@ -528,21 +528,21 @@
        height="11.550086"
        width="33.839111"
        id="rect183"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468000000004;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#888a85;stroke-width:0.12681933;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.01455468, 1.01455468;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
     <text
        id="text187"
        y="164.29616"
        x="57.286186"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:6.61458302px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px;"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#888a85;stroke-width:0.26458332px"
          y="164.29616"
          x="57.286186"
          id="tspan185"
          sodipodi:role="line">other stuff</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;line-height:3.01334262px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12053368px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="60.530727"
        y="77.591377"
        id="text193"
@@ -551,7 +551,7 @@
          id="tspan191"
          x="60.530727"
          y="77.591377"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px;">.symtab</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12053368px">.symtab</tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="opacity:1;fill:#729fcf;fill-opacity:1;stroke:#555753;stroke-width:0.17638889;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
@@ -559,7 +559,7 @@
        id="path189" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="21.693016"
        y="106.36483"
        id="text199"><tspan
@@ -567,11 +567,11 @@
          id="tspan195"
          x="21.693016"
          y="106.36483"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;">symbols needed</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px">symbols needed</tspan><tspan
          sodipodi:role="line"
          x="21.693016"
          y="111.65649"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px"
          id="tspan197">at runtime</tspan></text>
     <path
        style="opacity:1;fill:#729fcf;fill-opacity:1;stroke:#eeeeec;stroke-width:0.17638889;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
@@ -589,15 +589,15 @@
        id="text215"
        y="106.44627"
        x="72.427116"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:3.17797351px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px"
          y="106.44627"
          x="72.427116"
          id="tspan211"
          sodipodi:role="line">symbols needed by linker</tspan><tspan
          id="tspan213"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px;"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.88055563px;line-height:5.29166651px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.12711892px"
          y="111.73794"
          x="72.427116"
          sodipodi:role="line">to construct program</tspan></text>
@@ -626,7 +626,7 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88055563px;line-height:3.17797327px;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;line-height:3.17797327px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke:none;stroke-width:0.12711892px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="17.896194"
        y="70.281418"
        id="text6649-0"><tspan
@@ -635,18 +635,18 @@
          sodipodi:role="line"
          x="17.896194"
          y="70.281418"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52777767px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">usually stripped out</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px">usually stripped out</tspan><tspan
          rotate="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
          sodipodi:role="line"
          x="17.896194"
-         y="73.555702"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52777767px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px"
+         y="73.459389"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px"
          id="tspan1132">into separate debug</tspan><tspan
          rotate="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
          sodipodi:role="line"
          x="17.896194"
-         y="76.829987"
-         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:3.52777767px;font-family:Cantarell;-inkscape-font-specification:'Cantarell Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px"
+         y="76.637367"
+         style="font-style:normal;font-variant:normal;font-weight:200;font-stretch:normal;font-size:3.88055563px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Ultra-Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#555753;fill-opacity:1;stroke-width:0.12711892px"
          id="tspan1134">package</tspan></text>
     <g
        style="fill:#555753"

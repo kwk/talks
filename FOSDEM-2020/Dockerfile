@@ -8,9 +8,14 @@ RUN dnf install -y \
     graphviz* \
     librsvg2-tools \
     make \
+    mozilla-fira-fonts-common \
+    mozilla-fira-mono-fonts \
+    mozilla-fira-sans-fonts \
     pandoc \
     python3-pip \
     texlive-ae \
+    texlive-appendix \
+    texlive-appendixnumberbeamer \
     texlive-babel-english \
     texlive-beamer \
     texlive-beamertheme-metropolis \
@@ -18,12 +23,15 @@ RUN dnf install -y \
     texlive-dejavu \
     texlive-dvisvgm \
     texlive-ec \
+    texlive-fira \
+    texlive-firamath \
     texlive-font* \
     texlive-fontawesome \
     texlive-framed \
     texlive-gsftopk \
     texlive-lato \
     texlive-listings \
+    texlive-lstfiracode \
     texlive-metafont \
     texlive-noto \
     texlive-patchcmd \
