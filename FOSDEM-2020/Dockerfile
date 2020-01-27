@@ -37,9 +37,12 @@ RUN dnf install -y \
     texlive-patchcmd \
     texlive-pstricks \
     texlive-t2 \
+    'tex(ulem.sty)' \
   && dnf clean all
 
-RUN locale-gen C.UTF-8
+RUN dnf install -y texlive-langextra
+
+# RUN locale-gen C.UTF-8
 ENV LANG C.UTF-8
 
 # Create a non-root user and a group with the same name: "presenter"
@@ -51,7 +54,12 @@ USER presenter
 RUN mkdir -p /home/presenter/talk
 WORKDIR /home/presenter/talk
 ENV PATH=${PATH}:/home/presenter/.local/bin
-COPY Makefile .
-RUN make setup
+RUN pip install --user --quiet \
+    pandoc-latex-fontsize \
+    pandoc-latex-color \
+    pandoc-beamer-block
 
-ENTRYPOINT ["/bin/bash"]
+RUN chown -R presenter:presenter /home/presenter
+VOLUME /home/presenter/talk
+
+ENTRYPOINT ["/usr/bin/bash"]

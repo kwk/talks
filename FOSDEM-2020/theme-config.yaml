@@ -60,4 +60,5 @@ header-includes: |
   \usepackage{tikz}
   \usetikzlibrary{positioning,shapes.geometric}
   \usepackage{appendixnumberbeamer}
+  \usepackage{ulem}
 ...
