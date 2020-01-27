@@ -30,20 +30,11 @@ lang: en-GB
 :::
 ::::::::::::::
 
-<!-- ![](img/red-shield.pdf){width=0.5cm height=0.5cm} McAfee
-
-* content filtering + text extraction (mostly PDF) compression libs (2013-2016)
-
-![](img/gonicus.png){height=0.5cm}
-
-* statistics module for large scale telephony installation (2009-2013) -->
-
 ### \faicon{comments-o} Reach out
 
 * \faicon{github-square} <https://github.com/kwk/talks/>
 * \faicon{linkedin-square} <https://www.linkedin.com/in/konradkleine>
 <!-- * \faicon{rss} <https://developers.redhat.com/blog/author/kkleine/> -->
-<!-- * \faicon{twitter} n/a -->
 
 ## \faicon{crosshairs} Overall goal
 
@@ -67,7 +58,7 @@ lang: en-GB
   * \faicon{arrow-right} *more than two sections make up an ELF file \faicon{smile-o}*
 
 * eventually only one relevant section
-  * stripped `.symtab`
+  * stripped `.symtab` (only function symbols)
   * rest was too big
   * ELF format remained
   * **no replacement** for separate full debug info
@@ -189,8 +180,6 @@ WARNING:  Unable to resolve breakpoint to any actual locations.
 
 (lldb)
 ```
-
-*\faicon{music}  [If you're \faicon{frown-o} and you know it \dots \faicon{stack-overflow}]{.large}*
 
 [^lldb9]: LLDB 9.0.0 is what ships with Fedora 31
 
