@@ -8,9 +8,7 @@ author:
 - Konrad Kleine
 keywords: [lldb, gdb, gnu_debugdata, minidebuginfo]
 abstract: |
-  Some text
-  that can spread
-  multiple lines
+  Mini-Debuginfo is added to LLDB.
 date: February 2, 2020
 lang: en-GB
 ...
@@ -18,14 +16,14 @@ lang: en-GB
 ##  \faicon{user} About me
 
 :::::::::::::: {.columns}
-::: {.column width="70%"}
+::: {.column width="80%"}
 ![](img/redhat.pdf){height=0.5cm}
 
 * LLDB, C/C++, ELF, DWARF since 2019
 * joined and worked on OpenShift in 2016
 
 :::
-::: {.column width="30%"}
+::: {.column width="20%"}
 ![](img/llvm-circle-metropolis.pdf)
 :::
 ::::::::::::::
@@ -58,7 +56,10 @@ lang: en-GB
   * \faicon{arrow-right} *more than two sections make up an ELF file \faicon{smile-o}*
 
 * eventually only one relevant section
-  * stripped `.symtab` (only function symbols)
+  * stripped `.symtab` (simplified: *just function symbols*)
+    <!-- * TODO: just function symbols (see `nm` on GBD page, palves)
+    * Add the above to image above  -->
+    <!-- * TODO: btf ctf what is that (fche, mjw)  -->
   * rest was too big
   * ELF format remained
   * **no replacement** for separate full debug info
@@ -307,7 +308,7 @@ Sections:
 ...
 ```
 
-* notice line 4 manually removes `.symtab`
+* notice line 3 manually removes `.symtab`
 * meanwhile `yaml2obj` was fixed
 
 ##  {.standout}
