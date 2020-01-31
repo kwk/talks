@@ -93,6 +93,7 @@ lang: en-GB
   * not from `.dynsym`
   * from within `.gnu_debugdata`
 
+<!--
 ## \faicon{folder-open-o} Extract + decompress `.gnu_debugdata` from `/usr/bin/zip`
 
 ```{.bash .small .numberLines}
@@ -110,7 +111,7 @@ zip.gdd.xz: XZ compressed data
 ~$ file zip.gdd
 zip.gdd: ELF 64-bit LSB executable, x86-64, version 1 [...]
 ```
-
+-->
 <!-- * `eu-readelf -Ws --elf-section` can directly access `.gnu_debugdata` -->
 
 
