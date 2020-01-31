@@ -36,26 +36,32 @@ lang: en-GB
 
 ## \faicon{crosshairs} Overall goal
 
-### Improve LLDB for Fedora and RHEL binaries
+### Improve LLDB for Fedora and RHEL *release* binaries[^sincewhen]
 
 * when no debug symbols installed
-  * backtraces only show addresses
-  * runtime symbols stored in special location
+  * not all function symbols available (only `.dynsym`)
+    * backtraces mostly show addresses
+  <!-- * symbols stored in special location -->
 
 ### Approach
 
 * make LLDB understand mini-debuginfo
   * that's where runtime symbols are stored
 
+[^sincewhen]: Mini-debuginfo used since Fedora 18 (2013, [Release Notes 4.2.4.1.](https://docs.fedoraproject.org/en-US/Fedora/18/pdf/Release_Notes/Fedora-18-Release_Notes-en-US.pdf#page=23)) and RHEL 7.x
+
+
 ## \faicon{lightbulb-o} Why was mini-debuginfo invented and how?
 
-* without installing debug infos
+<!-- *A long time ago, in a galaxy far, far away ...* -->
+
+* Without installing debug infos
   * be able to generate a backtrace for crashes with ABRT[^abrt]
   * ~~have symbol table (`.symtab`)~~
   * ~~have line information (`.debug_line`)~~
-  * \faicon{arrow-right} *more than two sections make up an ELF file \faicon{smile-o}*
+  * \faicon{arrow-right} my guessed conclusion: *more than two sections make up an ELF file?!*
 
-* eventually only one relevant section
+* Eventually only one relevant section
   * stripped `.symtab` (simplified: *just function symbols*)
     <!-- * TODO: just function symbols (see `nm` on GBD page, palves)
     * Add the above to image above  -->
@@ -72,11 +78,11 @@ lang: en-GB
 
 ![](img/symtab-dynsym.pdf)
 
-## Where and since when is mini-debuginfo being used?
+<!-- ## Where and since when is mini-debuginfo being used?
 
-<!-- * [RPM since 4.13.0-rc2 (2016)](https://rpm.org/timeline.html) -->
+* [RPM since 4.13.0-rc2 (2016)](https://rpm.org/timeline.html)
 * On by default since Fedora 18 (2013, [Release Notes 4.2.4.1.](https://docs.fedoraproject.org/en-US/Fedora/18/pdf/Release_Notes/Fedora-18-Release_Notes-en-US.pdf#page=23))
-* Red Hat Enterprise Linux (RHEL) since 7
+* Red Hat Enterprise Linux (RHEL) since 7 -->
 
 ## \faicon{map-signs} Approach
 
