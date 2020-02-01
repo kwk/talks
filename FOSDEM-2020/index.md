@@ -333,4 +333,4 @@ zip`help:
 (lldb)
 ```
 
-\faicon{heart-o} shipping with LLVM 10 ([Back to demo 1.](#endofdemo2))
+\faicon{heart-o} shipping with LLVM 10 ([Back to demo 2.](#endofdemo2))
