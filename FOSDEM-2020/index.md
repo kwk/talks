@@ -19,7 +19,7 @@ lang: en-GB
 
 * when no debug symbols installed
   * not all function symbols *directly* available (only `.dynsym`)
-    * backtraces/coredumps mostly show addresses
+    * stacktraces mostly show addresses
 
 ### Approach
 
@@ -91,11 +91,13 @@ Symbol table [28] '.symtab' contains 202 entries:
 
 [^promising]: Promising as in: we may be able to trigger it with `/usr/bin/zip --help`.
 
-## \faicon{trophy} Let's be brave... {#endofdemo1}
+<!-- ## \faicon{trophy} Let's be brave... {#endofdemo1} -->
+
+##  {#endofdemo1}
 
 \centering
 
-[...and do a demo!]{.Huge}
+[\faicon{trophy} Let's be brave and do a demo!]{.Huge}
 
 [[Didn't work?](#demo1didntwork)]{.small}
 
@@ -143,9 +145,9 @@ Symbol table [28] '.symtab' contains 202 entries:
 
 [^yaml2obj]: *"yaml2obj takes a YAML description of an object file and converts it to a binary file."*  (<https://llvm.org/docs/yaml2obj.html>)
 
-##  Thank you{#thankyou}
+##  Thank you!{#thankyou}
 
-\vfill{}
+<!-- \vfill{} -->
 
 <!-- ![](img/llvm-circle-and-red-hat.pdf){height=2cm}
 
@@ -156,6 +158,7 @@ Symbol table [28] '.symtab' contains 202 entries:
 * \faicon{github-square} <https://github.com/kwk/talks/>
 * \faicon{linkedin-square} <https://www.linkedin.com/in/konradkleine>
 * \faicon{star} <https://submission.fosdem.org/feedback/10393>
+* <https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.htm>
 
 <!-- 
 [Please, share your feedback \faicon{star} \faicon{star} \faicon{star} \faicon{star} \faicon{star-half-full}]{.tiny}
