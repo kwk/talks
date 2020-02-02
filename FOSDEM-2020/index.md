@@ -19,8 +19,8 @@ lang: en-GB
 ::: {.column width="80%"}
 ![](img/redhat.pdf){height=0.3cm}
 
-* LLDB, C/C++, ELF, DWARF since 2019
-* joined and worked on OpenShift in 2016
+* LLDB since 2019
+* before OpenShift since 2016
 \vspace{1cm}
 
 :::
@@ -120,7 +120,7 @@ Symbol table [28] '.symtab' contains 202 entries:
 
 [[Didn't work?](#demo1didntwork)]{.small}
 
-## \faicon{table} Let's talk `.symtab`
+<!-- ## \faicon{table} Let's talk `.symtab`
 
 ### Symtab (reminder)
 * normally, `.dynsym` is a subset
@@ -131,15 +131,15 @@ Symbol table [28] '.symtab' contains 202 entries:
   * no `.symtab` found **or**
   * mini-debuginfo present and smuggled in
 
-[^strippedsymtab]: https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html
+[^strippedsymtab]: https://sourceware.org/gdb/current/onlinedocs/gdb/MiniDebugInfo.html -->
 
-## \faicon{trophy} Let's be stupid... {#endofdemo2}
+<!-- ## \faicon{trophy} Let's be stupid... {#endofdemo2}
 
 \centering
 
 [...and do *yet another* demo!]{.Huge}
 
-[[Didn't work?](#demo2didntwork)]{.small}
+[[Didn't work?](#demo2didntwork)]{.small} -->
 
 # \faicon{ship} Ready to ship?
 
@@ -304,8 +304,7 @@ WARNING:  Unable to resolve breakpoint to any actual locations.
 
 (lldb)
 ```
-
-[Back to demo 1.](#endofdemo1)
+<!-- [Back to demo 1.](#endofdemo1) -->
 
 [^lldb9]: LLDB 9.0.0 is what ships with Fedora 31
 
@@ -333,4 +332,4 @@ zip`help:
 (lldb)
 ```
 
-\faicon{heart-o} shipping with LLVM 10 ([Back to demo 2.](#endofdemo2))
+\faicon{heart-o} shipping with LLVM 10 ([Back to demo](#endofdemo1))
