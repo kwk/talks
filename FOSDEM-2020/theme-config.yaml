@@ -34,7 +34,7 @@ pandoc-beamer-block:
 # See https://pandoc.org/MANUAL.html#variables-for-beamer-slides
 #----------------
 # slide aspect ratio (43 for 4:3 [default], 169 for 16:9, 1610 for 16:10, 149 for 14:9, 141 for 1.41:1, 54 for 5:4, 32 for 3:2) 
-aspectratio: 169
+aspectratio: 1610
 # beamer themes
 # Metropolis docs: http://vesta.informatik.rwth-aachen.de/ftp/pub/mirror/ctan/macros/latex/contrib/beamer-contrib/themes/metropolis/doc/metropolistheme.pdf
 theme: metropolis

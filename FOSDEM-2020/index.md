@@ -2,7 +2,7 @@
 title: Support for mini-debuginfo in LLDB
 subtitle: 'How to read the .gnu_debugdata section'
 subject: LLDB development
-institute: Red Hat
+institute: Red Hat - LLDB
 category: FOSDEM 2020 talk
 author:
 - Konrad Kleine
@@ -12,27 +12,6 @@ abstract: |
 date: February 2, 2020
 lang: en-GB
 ...
-
-##  \faicon{user} About me
-
-:::::::::::::: {.columns}
-::: {.column width="80%"}
-![](img/redhat.pdf){height=0.3cm}
-
-* LLDB since 2019
-* before OpenShift since 2016
-\vspace{1cm}
-
-:::
-::: {.column width="20%"}
-![](img/llvm-circle-metropolis.pdf)
-:::
-::::::::::::::
-
-### \faicon{comments-o} Reach out
-
-* \faicon{github-square} <https://github.com/kwk/talks/>
-* \faicon{linkedin-square} <https://www.linkedin.com/in/konradkleine>
 
 ## \faicon{crosshairs} Overall goal
 
@@ -159,26 +138,29 @@ Symbol table [28] '.symtab' contains 202 entries:
 * \faicon{map-o} dealing with tests
   * `yaml2obj`[^yaml2obj] always produced `.symtab`
     * made my tests go nuts
-
-### Community aspects 
 * \faicon{balance-scale} polishing for upstream
-* \faicon{github} repo migration to github, review in phabricator
+* [got more time?](#moretime)
 
 [^yaml2obj]: *"yaml2obj takes a YAML description of an object file and converts it to a binary file."*  (<https://llvm.org/docs/yaml2obj.html>)
 
-##  {.standout}
+##  Thank you{#thankyou}
 
 \vfill{}
 
-![](img/llvm-circle-and-red-hat.pdf){height=2cm}
+<!-- ![](img/llvm-circle-and-red-hat.pdf){height=2cm}
 
-\vspace{1cm}
+\vspace{1cm} -->
 
 [Thank you!]{.Huge}
 
+* \faicon{github-square} <https://github.com/kwk/talks/>
+* \faicon{linkedin-square} <https://www.linkedin.com/in/konradkleine>
+* \faicon{star} <https://submission.fosdem.org/feedback/10393>
+
+<!-- 
 [Please, share your feedback \faicon{star} \faicon{star} \faicon{star} \faicon{star} \faicon{star-half-full}]{.tiny}
 
-[<https://submission.fosdem.org/feedback/10393>]{.tiny}
+[<https://submission.fosdem.org/feedback/10393>]{.tiny} -->
 
 \appendixworkaround
 
@@ -240,6 +222,7 @@ Sections:
 
 * notice line 3 manually removes `.symtab`
 * meanwhile `yaml2obj` was fixed
+* [thank you](#thankyou)
 
 ## \faicon{folder-open-o} Extract + decompress `.gnu_debugdata` from `/usr/bin/zip`
 
@@ -258,6 +241,8 @@ zip.gdd.xz: XZ compressed data
 ~$ file zip.gdd
 zip.gdd: ELF 64-bit LSB executable, x86-64, version 1 [...]
 ```
+
+[thank you](#thankyou)
 
 <!-- * `eu-readelf -Ws --elf-section` can directly access `.gnu_debugdata` -->
 
